@@ -1,6 +1,6 @@
 {
   "name": "react-liquid-glass-ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A modern React component library built with TypeScript, Tailwind CSS, Radix UI, and Storybook",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
@@ -73,6 +73,7 @@
     "@storybook/react": "^8.3.5",
     "@storybook/react-vite": "^8.3.5",
     "@storybook/test": "^8.3.5",
+    "@types/node": "^24.0.1",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^8.8.1",

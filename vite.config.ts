@@ -13,7 +13,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
+      entry: resolve("src/index.ts"),
       name: "ReactLiquidGlassUI",
       formats: ["es", "umd"],
       fileName: (format) => `index.${format}.js`,
@@ -24,6 +24,12 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith(".css")) {
+            return "style.css";
+          }
+          return assetInfo.name || "";
         },
       },
     },
