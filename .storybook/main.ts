@@ -8,6 +8,19 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    {
+      name: "watch-node-modules",
+      options: {
+        ignored: [
+          /node_modules\/(?!react-liquid-glass-ui).*/,
+          "**/.git/**",
+          "**/.storybook/**",
+          "**/.vite/**",
+          "**/.storybook/**",
+          "**/.vite/**",
+        ],
+      },
+    },
   ],
   framework: {
     name: "@storybook/react-vite",
