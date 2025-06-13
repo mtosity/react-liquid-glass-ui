@@ -11,8 +11,7 @@ const meta = {
       values: [
         {
           name: "gradient",
-          value:
-            'center / cover no-repeat url("https://images.unsplash.com/photo-1488415032361-b7e238421f1b?q=80&w=3674")',
+          value: "linear-gradient(to right,rgb(22, 10, 46),rgb(29, 17, 88))",
         },
         {
           name: "dark",
@@ -22,7 +21,7 @@ const meta = {
         {
           name: "image",
           value:
-            'center / cover no-repeat url("https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg")',
+            'center / cover no-repeat url("https://images.unsplash.com/photo-1488415032361-b7e238421f1b?q=80&w=3674")',
         },
       ],
     },
@@ -127,6 +126,11 @@ export const ValueFormatting: Story = {
 
 // Interactive playground
 export const Playground: Story = {
+  parameters: {
+    backgrounds: {
+      default: "image",
+    },
+  },
   render: () => (
     <div className="flex flex-col gap-8 w-96 p-8">
       <div className="text-center">

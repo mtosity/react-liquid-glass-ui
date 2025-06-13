@@ -37,7 +37,7 @@ const meta = {
         {
           name: "gradient",
           value:
-            'center / cover no-repeat url("https://images.unsplash.com/photo-1488415032361-b7e238421f1b?q=80&w=3674")',
+            "linear-gradient(to right,rgb(139, 76, 194),rgb(103, 46, 217))",
         },
         {
           name: "dark",
@@ -47,7 +47,7 @@ const meta = {
         {
           name: "image",
           value:
-            'center / cover no-repeat url("https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg")',
+            'center / cover no-repeat url("https://images.unsplash.com/photo-1488415032361-b7e238421f1b?q=80&w=3674")',
         },
       ],
     },
@@ -157,6 +157,11 @@ export const Shapes: Story = {
 
 // Flexible content demonstration
 export const FlexibleContent: Story = {
+  parameters: {
+    backgrounds: {
+      default: "image",
+    },
+  },
   render: () => (
     <div className="py-60">
       <div className="flex flex-col gap-6">
@@ -237,6 +242,11 @@ export const FlexibleContent: Story = {
 
 // Loading states
 export const LoadingStates: Story = {
+  parameters: {
+    backgrounds: {
+      default: "dark",
+    },
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <Button variant="default" size="md" loading />
