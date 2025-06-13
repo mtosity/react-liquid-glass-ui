@@ -119,6 +119,52 @@ export default {
             filter: "brightness(1.1)",
           },
         },
+        liquidStretch: {
+          "0%": {
+            transform: "scale(1)",
+            borderRadius: "9999px",
+          },
+          "25%": {
+            transform: "scaleX(1.1) scaleY(0.95)",
+            borderRadius: "60% 40% 30% 70%",
+          },
+          "50%": {
+            transform: "scaleX(0.95) scaleY(1.1)",
+            borderRadius: "40% 60% 70% 30%",
+          },
+          "75%": {
+            transform: "scaleX(1.05) scaleY(0.95)",
+            borderRadius: "50% 50% 40% 60%",
+          },
+          "100%": {
+            transform: "scale(1.02)",
+            borderRadius: "9999px",
+          },
+        },
+        liquidDrag: {
+          "0%": {
+            transform: "scale(1)",
+            borderRadius: "9999px",
+          },
+          "100%": {
+            transform: "scaleX(1.2) scaleY(0.8)",
+            // borderRadius: "40% 50% 50% 50%",
+          },
+        },
+        liquidRelease: {
+          "0%": {
+            transform: "scaleX(1.2) scaleY(0.8)",
+            borderRadius: "40% 60% 50% 50%",
+          },
+          "50%": {
+            transform: "scaleX(0.9) scaleY(1.1)",
+            borderRadius: "50% 50% 60% 40%",
+          },
+          "100%": {
+            transform: "scale(1)",
+            borderRadius: "9999px",
+          },
+        },
         glassShimmer: {
           "0%": {
             backgroundPosition: "-200% 0",
@@ -151,6 +197,10 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         ripple: "ripple 0.6s ease-out forwards",
         liquidPulse: "liquidPulse 2s ease-in-out infinite",
+        liquidStretch: "liquidStretch 1.2s ease-in-out infinite",
+        liquidDrag: "liquidDrag 0.2s ease-out forwards",
+        liquidRelease:
+          "liquidRelease 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards",
         glassShimmer: "glassShimmer 2s ease-in-out infinite",
         floatUp: "floatUp 0.6s ease-out forwards",
         shimmer: "shimmer 2s ease-in-out infinite",
