@@ -164,76 +164,78 @@ export const Shapes: Story = {
 // Flexible content demonstration
 export const FlexibleContent: Story = {
   render: () => (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap items-center gap-4">
-        <span className="text-white text-sm font-medium">Icons Only:</span>
-        <Button
-          variant="default"
-          size="sm"
-          shape="circle"
-          icon={<PlayIcon />}
-        />
-        <Button
-          variant="default"
-          size="md"
-          shape="circle"
-          icon={<PauseIcon />}
-        />
-        <Button
-          variant="default"
-          size="lg"
-          shape="circle"
-          icon={<CameraIcon />}
-        />
-      </div>
+    <div className="py-60">
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-wrap items-center gap-4">
+          <span className="text-white text-sm font-medium">Icons Only:</span>
+          <Button
+            variant="default"
+            size="sm"
+            shape="circle"
+            icon={<PlayIcon />}
+          />
+          <Button
+            variant="default"
+            size="md"
+            shape="circle"
+            icon={<PauseIcon />}
+          />
+          <Button
+            variant="default"
+            size="lg"
+            shape="circle"
+            icon={<CameraIcon />}
+          />
+        </div>
 
-      <div className="flex flex-wrap items-center gap-4">
-        <span className="text-white text-sm font-medium">Labels Only:</span>
-        <Button variant="default" size="sm" shape="pill" label="Play" />
-        <Button
-          variant="default"
-          size="md"
-          shape="pill"
-          label="Continue Watching"
-        />
-        <Button
-          variant="default"
-          size="lg"
-          shape="pill"
-          label="Start Your Free Trial"
-        />
-      </div>
+        <div className="flex flex-wrap items-center gap-4">
+          <span className="text-white text-sm font-medium">Labels Only:</span>
+          <Button variant="default" size="sm" shape="pill" label="Play" />
+          <Button
+            variant="default"
+            size="md"
+            shape="pill"
+            label="Continue Watching"
+          />
+          <Button
+            variant="default"
+            size="lg"
+            shape="pill"
+            label="Start Your Free Trial"
+          />
+        </div>
 
-      <div className="flex flex-wrap items-center gap-4">
-        <span className="text-white text-sm font-medium">Icon + Label:</span>
-        <Button
-          variant="default"
-          size="sm"
-          shape="rounded"
-          icon={<PlayIcon />}
-          label="Play"
-        />
-        <Button
-          variant="default"
-          size="md"
-          shape="rounded"
-          icon={<CameraIcon />}
-          label="Take Photo"
-        />
-        <Button
-          variant="default"
-          size="lg"
-          shape="rounded"
-          icon={<FlashlightIcon />}
-          label="Toggle Flash"
-        />
-      </div>
+        <div className="flex flex-wrap items-center gap-4">
+          <span className="text-white text-sm font-medium">Icon + Label:</span>
+          <Button
+            variant="default"
+            size="sm"
+            shape="rounded"
+            icon={<PlayIcon />}
+            label="Play"
+          />
+          <Button
+            variant="default"
+            size="md"
+            shape="rounded"
+            icon={<CameraIcon />}
+            label="Take Photo"
+          />
+          <Button
+            variant="default"
+            size="lg"
+            shape="rounded"
+            icon={<FlashlightIcon />}
+            label="Toggle Flash"
+          />
+        </div>
 
-      <div className="flex flex-wrap items-center gap-4">
-        <span className="text-white text-sm font-medium">Numbers:</span>
-        <Button variant="default" size="md" shape="circle" number={5} />
-        <Button variant="default" size="lg" shape="circle" number={10} />
-        <Button variant="default" size="xl" shape="circle" number={15} />
+        <div className="flex flex-wrap items-center gap-4">
+          <span className="text-white text-sm font-medium">Numbers:</span>
+          <Button variant="default" size="md" shape="circle" number={5} />
+          <Button variant="default" size="lg" shape="circle" number={10} />
+          <Button variant="default" size="xl" shape="circle" number={15} />
+        </div>
       </div>
     </div>
   ),
@@ -256,71 +258,122 @@ export const LoadingStates: Story = {
   ),
 };
 
-// Real-world usage examples
-export const CameraApp: Story = {
+export const SmartphoneScrolling: Story = {
   parameters: {
     backgrounds: {
       default: "dark",
     },
+    layout: "fullscreen",
   },
   render: () => (
-    <div className="flex flex-col items-center gap-8 p-8">
-      <div className="flex items-center gap-4">
-        <Button
-          variant="default"
-          size="md"
-          icon={<FlashlightIcon />}
-          aria-label="Toggle flashlight"
-        />
-        <Button
-          variant="default"
-          size="xl"
-          icon={<CameraIcon />}
-          aria-label="Take photo"
-        />
-        <Button
-          variant="default"
-          size="md"
-          icon={<RewindIcon />}
-          aria-label="Switch camera"
-        />
-      </div>
-      <div className="text-white text-sm text-center">Camera Controls</div>
-    </div>
-  ),
-};
+    <div className="relative w-1/2-full h-screen overflow-hidden">
+      {/* Animated scrolling background */}
+      <div className="absolute inset-0">
+        <div
+          className="relative w-full h-[400vh]"
+          style={{
+            animation: "scrollUp 8s ease-in-out infinite",
+          }}
+        >
+          {/* Multiple background sections to simulate content */}
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-purple-900/50 via-blue-900/50 to-teal-900/50"
+            style={{
+              backgroundImage: `
+                url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=3870"),
+                url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=3870"),
+                url("https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=3870"),
+                url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=3870")
+              `,
+              backgroundSize: "100% 25%, 100% 25%, 100% 25%, 100% 25%",
+              backgroundPosition: "0% 0%, 0% 25%, 0% 50%, 0% 75%",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
 
-export const VideoPlayer: Story = {
-  parameters: {
-    backgrounds: {
-      default: "image",
-    },
-  },
-  render: () => (
-    <div className="flex flex-col items-center gap-8 p-8 relative w-full h-full">
-      <div className="flex items-center gap-6 relative z-10">
-        <Button
-          variant="default"
-          size="lg"
-          number={15}
-          aria-label="Rewind 15 seconds"
-        />
-        <Button
-          variant="default"
-          size="2xl"
-          icon={<PauseIcon />}
-          aria-label="Pause video"
-        />
-        <Button
-          variant="default"
-          size="lg"
-          number={15}
-          aria-label="Forward 15 seconds"
-        />
+          {/* Overlay content sections */}
+          <div className="absolute top-0 left-0 right-0 h-1/4 flex items-center justify-center">
+            <div className="text-white text-4xl font-bold opacity-40">
+              Mountain Range
+            </div>
+          </div>
+          <div className="absolute top-1/4 left-0 right-0 h-1/4 flex items-center justify-center">
+            <div className="text-white text-4xl font-bold opacity-40">
+              Ocean Waves
+            </div>
+          </div>
+          <div className="absolute top-2/4 left-0 right-0 h-1/4 flex items-center justify-center">
+            <div className="text-white text-4xl font-bold opacity-40">
+              Forest Path
+            </div>
+          </div>
+          <div className="absolute top-3/4 left-0 right-0 h-1/4 flex items-center justify-center">
+            <div className="text-white text-4xl font-bold opacity-40">
+              Back to Mountains
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="text-white text-sm text-center relative z-10">
-        Video Player Controls
+
+      {/* Fixed transparent buttons */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none w-full flex justify-center">
+        {/* Left flashlight button */}
+        <div className="w-80 my-20 border-2 border-white p-12 rounded-xl pt-80">
+          <div className="flex items-center justify-between mb-20">
+            <Button
+              variant="default"
+              size="lg"
+              number={15}
+              aria-label="Rewind 15 seconds"
+            />
+            <Button
+              variant="default"
+              size="2xl"
+              icon={<PauseIcon />}
+              aria-label="Pause video"
+            />
+            <Button
+              variant="default"
+              size="lg"
+              number={15}
+              aria-label="Forward 15 seconds"
+            />
+          </div>
+          <div className="flex justify-between">
+            <Button
+              variant="default"
+              size="xl"
+              shape="circle"
+              icon={<FlashlightIcon />}
+              aria-label="Toggle flashlight"
+              className="bg-white/5 backdrop-blur-md hover:bg-white/10"
+            />
+            <Button
+              variant="default"
+              size="xl"
+              shape="circle"
+              icon={<CameraIcon />}
+              aria-label="Take photo"
+              className="bg-white/5 backdrop-blur-md hover:bg-white/10"
+            />
+          </div>
+        </div>
       </div>
+
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @keyframes scrollUp {
+            0% {
+              transform: translateY(0);
+            }
+            100% {
+              transform: translateY(-75%);
+            }
+          }
+        `,
+        }}
+      />
     </div>
   ),
 };
