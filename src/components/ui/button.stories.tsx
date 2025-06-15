@@ -270,15 +270,10 @@ export const SmartphoneScrolling: Story = {
     layout: "fullscreen",
   },
   render: () => (
-    <div className="relative w-1/2-full h-screen overflow-hidden">
-      {/* Animated scrolling background */}
-      <div className="absolute inset-0">
-        <div
-          className="relative w-full h-[400vh]"
-          style={{
-            animation: "scrollUp 8s ease-in-out infinite",
-          }}
-        >
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Scrolling background */}
+      <div className="absolute inset-0 overflow-y-auto">
+        <div className="relative w-full h-[400vh]">
           {/* Multiple background sections to simulate content */}
           <div
             className="absolute inset-0 bg-gradient-to-b from-purple-900/50 via-blue-900/50 to-teal-900/50"
@@ -320,7 +315,7 @@ export const SmartphoneScrolling: Story = {
       </div>
 
       {/* Fixed transparent buttons */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none w-full flex justify-center">
+      <div className="absolute bottom-0 left-0 right-0 w-full flex justify-center">
         {/* Left flashlight button */}
         <div className="w-80 my-20 border-2 border-white p-12 rounded-xl pt-80">
           <div className="flex items-center justify-between mb-20">
@@ -363,21 +358,6 @@ export const SmartphoneScrolling: Story = {
           </div>
         </div>
       </div>
-
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-          @keyframes scrollUp {
-            0% {
-              transform: translateY(0);
-            }
-            100% {
-              transform: translateY(-75%);
-            }
-          }
-        `,
-        }}
-      />
     </div>
   ),
 };

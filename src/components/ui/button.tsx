@@ -2,6 +2,7 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
+import { useLiquidGlass, defaultFragment } from "../../lib/use-liquid-glass";
 
 const buttonVariants = cva(
   [
@@ -125,6 +126,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const Comp = asChild ? Slot : "button";
+    const buttonRef = React.useRef<HTMLButtonElement>(null);
+    const filterId = useLiquidGlass(buttonRef, { fragment: defaultFragment });
 
     // Determine if this is a square/circle shape that needs equal dimensions
     const isSquareShape = shape === "circle" || shape === "square";
@@ -191,7 +194,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             "active:scale-95 active:rotate-1 hover:scale-105 transition-all duration-150 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]",
           className
         )}
-        ref={ref}
+        style={
+          filterId && variant === "default"
+            ? {
+                backdropFilter: `url(#${filterId}) blur(2px) contrast(1.05) brightness(1.05) saturate(1.1)`,
+              }
+            : {}
+        }
+        ref={(node: HTMLButtonElement) => {
+          (
+            buttonRef as React.MutableRefObject<HTMLButtonElement | null>
+          ).current = node;
+          if (typeof ref === "function") {
+            ref(node);
+          } else if (ref) {
+            ref.current = node;
+          }
+        }}
         disabled={disabled || loading}
         onClick={onClick}
         {...props}

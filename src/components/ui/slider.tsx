@@ -2,6 +2,7 @@ import * as React from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
+import { useLiquidGlass, defaultFragment } from "../../lib/use-liquid-glass";
 
 const sliderVariants = cva(
   ["relative flex w-full touch-none select-none items-center", "group"],
@@ -138,6 +139,8 @@ const Slider = React.forwardRef<
     props.defaultValue || props.value || [0]
   );
   const [isDragging, setIsDragging] = React.useState(false);
+  const thumbRef = React.useRef<HTMLSpanElement>(null);
+  const filterId = useLiquidGlass(thumbRef, { fragment: defaultFragment });
 
   const handleValueChange = (newValue: number[]) => {
     setValue(newValue);
@@ -168,13 +171,21 @@ const Slider = React.forwardRef<
           <SliderPrimitive.Range className={cn(rangeVariants())} />
         </SliderPrimitive.Track>
         <SliderPrimitive.Thumb
-          className={cn(thumbVariants({ size }))}
+          ref={thumbRef}
+          className={cn(thumbVariants({ size }), "bg-white/5")}
           aria-label="Slider thumb"
           data-state={isDragging ? "dragging" : "idle"}
           data-disabled={props.disabled}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerUp}
+          style={
+            filterId
+              ? {
+                  backdropFilter: `url(#${filterId}) blur(2px) saturate(1.2)`,
+                }
+              : {}
+          }
         />
       </SliderPrimitive.Root>
       {showValue && (
