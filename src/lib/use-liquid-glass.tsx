@@ -1,3 +1,4 @@
+// Original: https://github.com/shuding/liquid-glass/blob/main/liquid-glass.js
 import React, { useEffect, useRef, useState } from "react";
 
 // Utility functions from the original script
